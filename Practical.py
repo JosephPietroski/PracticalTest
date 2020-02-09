@@ -1,7 +1,7 @@
+
 import os
 import logging
 import subprocess
-from scapy.all import *
 ICMP = 'ICMP_SCAPY.py'
 
 
@@ -12,6 +12,7 @@ while True:
     if attack == 1:
         print("SYN Scan")
         subprocess.call(f"nmap -p 22 -sS {ip}", shell=True)
+        subprocess.call(["ls", "-l"])
     elif attack == 2:
         print("Fin Scan")
         subprocess.call(f"nmap -sF -p 80 {ip}", shell=True)
