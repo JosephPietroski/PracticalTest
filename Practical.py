@@ -2,7 +2,16 @@
 import os
 import logging
 import subprocess
-import ICMP_SCAPY
+
+from scapy.all import *
+
+def icmp_scapy():
+    
+    ip_layer = IP(dst='10.0.0.2')
+    icmp_layer = ICMP()
+    packet = ip_layer / icmp_layer
+    send(packet)
+    print("Packet Sent")
 
 while True:
     attack = int(input('Choose Attack:  '))
@@ -47,7 +56,7 @@ while True:
         subprocess.call(f"ping {ip} -s 0 " , shell=True)
     elif attack == 14:
         print("ICMP Scapy")
-        exec('ICMP_SCAPY.py')
+        icmp_scapy()
     else:
         print("Blyat!@#")
         
