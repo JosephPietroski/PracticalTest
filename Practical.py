@@ -2,7 +2,7 @@ import os
 import logging
 import subprocess
 from scapy.all import *
-attack1 = 'Attack1.py'
+ICMP = 'ICMP_SCAPY.py'
 
 
 while True:
@@ -46,8 +46,8 @@ while True:
         print("NMAP ICMP Ping")
         subprocess.call(f"ping {ip} -s 0 " , shell=True)
     elif attack == 14:
-        print("Active OS Fingerprinting")
-        subprocess.call(f"nmap -p 80 -O {ip}", shell=True)
+        print("ICMP Scapy")
+        subprocess.call(ICMP, shell=True)
     else:
         print("Blyat!@#")
         
